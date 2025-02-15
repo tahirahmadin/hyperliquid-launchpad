@@ -1,7 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { cn, formatCurrency } from "@/lib/utils";
-import { TrendingUp, Clock, CheckCircle, AlertCircle, DollarSign, Users, Wallet } from "lucide-react";
+import {
+  TrendingUp,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+  DollarSign,
+  Users,
+  Wallet,
+} from "lucide-react";
 import { DepositModal } from "./DepositModal";
 
 type PresaleStatus = "display" | "live" | "tba" | "ended" | "open";
@@ -66,7 +74,12 @@ export const TokenCard = ({
           <h3 className="text-xl font-semibold text-white mb-1">{name}</h3>
           <div className="text-sm text-gray-400">${symbol}</div>
         </div>
-        <div className={cn("px-3 py-1 rounded-full flex items-center gap-1.5", statusConfig[status].style)}>
+        <div
+          className={cn(
+            "px-3 py-1 rounded-full flex items-center gap-1.5",
+            statusConfig[status].style
+          )}
+        >
           {statusConfig[status].icon}
           <span className="text-sm font-medium capitalize">{status}</span>
         </div>
@@ -82,13 +95,17 @@ export const TokenCard = ({
           </div>
           <div>
             <span className="text-gray-400">Remaining</span>
-            <span className="text-white font-medium">{remaining.toLocaleString()}</span>
+            <span className="text-white font-medium">
+              {remaining.toLocaleString()}
+            </span>
           </div>
         </div>
 
         <div className="flex items-center justify-between text-sm">
           <span className="text-gray-400">Total Participants</span>
-          <span className="text-white font-medium">{totalParticipants.toLocaleString()}</span>
+          <span className="text-white font-medium">
+            {totalParticipants.toLocaleString()}
+          </span>
         </div>
 
         <div className="flex items-center justify-between text-sm">
@@ -102,33 +119,33 @@ export const TokenCard = ({
       <div className="mt-6">
         {status === "live" || status === "open" ? (
           <DepositModal onSubmit={handlePurchase}>
-            <Button 
-              className="w-full bg-[#00FFB7] hover:bg-[#00E6A5] text-black" 
+            <Button
+              className="w-full bg-[#00FFB7] hover:bg-[#00E6A5] text-black"
               size="lg"
             >
               Purchase Tokens
             </Button>
           </DepositModal>
         ) : status === "ended" ? (
-          <Button 
-            className="w-full bg-gray-700 hover:bg-gray-600 cursor-not-allowed text-white" 
-            size="lg" 
+          <Button
+            className="w-full bg-gray-700 hover:bg-gray-600 cursor-not-allowed text-white"
+            size="lg"
             disabled
           >
             Presale Ended
           </Button>
         ) : status === "tba" ? (
-          <Button 
-            className="w-full bg-purple-500/10 hover:bg-purple-500/20 text-purple-400" 
-            size="lg" 
+          <Button
+            className="w-full bg-purple-500/10 hover:bg-purple-500/20 text-purple-400"
+            size="lg"
             disabled
           >
             Coming Soon
           </Button>
         ) : (
-          <Button 
-            className="w-full bg-blue-500/10 hover:bg-blue-500/20 text-blue-400" 
-            size="lg" 
+          <Button
+            className="w-full bg-blue-500/10 hover:bg-blue-500/20 text-blue-400"
+            size="lg"
             disabled
           >
             Display Only

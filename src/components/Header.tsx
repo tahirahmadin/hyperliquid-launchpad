@@ -1,11 +1,11 @@
 import { useAppKit } from "@reown/appkit/react";
 import { useAccount } from "wagmi";
 import { UserBalance } from "./UserBalance";
-import { Menu } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { toast } from "sonner";
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const Header = () => {
   const { isConnected } = useAccount();
@@ -40,43 +40,50 @@ export const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0B0F] border-b border-gray-800">
+    <header className="fixed top-0 left-0 right-0 z-50 py-4 bg-black">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center">
           <h1
             onClick={() => navigate("/")}
-            className="text-lg sm:text-xl font-semibold text-white mr-8 cursor-pointer"
+            className="text-lg sm:text-xl font-semibold text-white mr-8 cursor-pointer flex items-center"
           >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/4515/4515497.png"
+              className="h-12 w-12"
+            />{" "}
             HedgewaterETFs
           </h1>
-          <nav className="hidden md:flex items-center space-x-6">
-            <a
+        </div>
+        <Tabs value={location.pathname} className="hidden md:block">
+          <TabsList className="bg-transparent border border-gray-800">
+            <TabsTrigger
+              value="/"
               onClick={() => navigate("/")}
-              className={`cursor-pointer ${
-                location.pathname === "/" ? "text-[#00FFB7]" : "text-white hover:text-[#00FFB7]"
-              }`}
+              className="data-[state=active]:bg-[#00FFB7]/10 data-[state=active]:text-[#00FFB7] text-white"
             >
               Discover
-            </a>
-            <a
+            </TabsTrigger>
+            <TabsTrigger
+              value="/staking"
               onClick={() => navigate("/staking")}
-              className={`cursor-pointer ${
-                location.pathname === "/staking" ? "text-[#00FFB7]" : "text-white hover:text-[#00FFB7]"
-              }`}
+              className="data-[state=active]:bg-[#00FFB7]/10 data-[state=active]:text-[#00FFB7] text-white"
             >
               Staking
-            </a>
-            <a href="#" className="text-white hover:text-[#00FFB7]">
+            </TabsTrigger>
+            <TabsTrigger
+              value="/eligibility"
+              className="data-[state=active]:bg-[#00FFB7]/10 data-[state=active]:text-[#00FFB7] text-white"
+            >
               Eligibility
-            </a>
-            <a href="#" className="text-white hover:text-[#00FFB7]">
+            </TabsTrigger>
+            <TabsTrigger
+              value="/faqs"
+              className="data-[state=active]:bg-[#00FFB7]/10 data-[state=active]:text-[#00FFB7] text-white"
+            >
               FAQs
-            </a>
-          </nav>
-          <button className="md:hidden text-gray-400 hover:text-white">
-            <Menu className="w-6 h-6" />
-          </button>
-        </div>
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
         <div className="flex items-center gap-3 sm:gap-4">
           {!isConnected && (
             <button
