@@ -133,32 +133,28 @@ const Index = () => {
           <div className="grid gap-8 grid-cols-1 md:grid-cols-3">
             <div className="bg-[#161616] from-[#0E1015] to-[#131B24] hover:from-[#0E1015] hover:via-[#131B24] hover:to-[#00FFB7]/10 rounded-lg p-6 border border-gray-800/50 backdrop-blur-xl transition-all duration-300 hover:border-[#00FFB7]/20 group">
               <div className="text-sm text-gray-400 uppercase tracking-wider mb-2 group-hover:text-[#00FFB7]/70">
-                Auction Starts in
+                HDWT MarketCap
               </div>
               <div className="text-3xl font-bold text-white">
                 <div className="text-lg font-semibold text-white">
-                  {timeRemainingAuction.days}d {timeRemainingAuction.hours}h{" "}
-                  {timeRemainingAuction.minutes}m {timeRemainingAuction.seconds}
-                  s
+                  $5,545,541
                 </div>
               </div>
             </div>
 
             <div className="bg-[#161616] from-[#0E1015] to-[#131B24] hover:from-[#0E1015] hover:via-[#131B24] hover:to-[#00FFB7]/10 rounded-lg p-6 border border-gray-800/50 backdrop-blur-xl transition-all duration-300 hover:border-[#00FFB7]/20 group">
               <div className="text-sm text-gray-400 uppercase tracking-wider mb-2 group-hover:text-[#00FFB7]/70">
-                Committed
+                Avg ROI
               </div>
-              <div className="text-3xl font-bold text-white">
-                {formatCurrency(livePresale?.totalRaised || "0")}
-              </div>
+              <div className="text-3xl font-bold text-white">14x</div>
             </div>
 
             <div className="bg-[#161616] from-[#0E1015] to-[#131B24] hover:from-[#0E1015] hover:via-[#131B24] hover:to-[#00FFB7]/10 rounded-lg p-6 border border-gray-800/50 backdrop-blur-xl transition-all duration-300 hover:border-[#00FFB7]/20 group">
               <div className="text-sm text-gray-400 uppercase tracking-wider mb-2 group-hover:text-[#00FFB7]/70">
-                Participants
+                Hype Ecosystem MCap
               </div>
               <div className="text-3xl font-bold text-white">
-                {livePresale?.participants || 0}
+                9,000,000,000+
               </div>
             </div>
           </div>
